@@ -1,0 +1,36 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .links a {
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  
+  .links a:hover {
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .nav {
+      padding: 1rem;
+    }
+    
+    .links {
+      gap: 1rem;
+    }
+  }
