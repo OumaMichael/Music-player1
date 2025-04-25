@@ -68,5 +68,75 @@
     "album": "Urban Tales",
     "genre": "Kenyan Hip Hop",
     "duration": "3:50"
+  },
+  {
+    "id": 8,
+    "file": "/Files/PRIDE.m4a",
+    "cover": "/Files/kendrick.jpg",
+    "title": "Pride",
+    "artist": "Kendrick Lamar",
+    "album": "DAMN.",
+    "genre": "Hip Hop",
+    "duration": "3:34"
+  },
+  {
+    "id": 9,
+    "file": "/Files/psycho.mp3",
+    "cover": "./Files/Survivor.jfif",
+    "title": "Psycho",
+    "artist": "Satan Dave",
+    "album": "Satanic Sessions",
+    "genre": "Hip Hop",
+    "duration": "3:47"
+  },
+  {
+    "id": 10,
+    "file": "/Files/19th Birthday.mp3",
+    "cover": "/Files/Survivor.jfif",
+    "title": "My 19th Birthday",
+    "artist": "Satan Dave",
+    "album": "Satanic Sessions",
+    "genre": "Hip Hop",
+    "duration": "3:47"
+  },
+  {
+    "id": 11,
+    "file": "./Files/Titanium.m4a",
+    "cover": "/Files/Survivor.jfif",
+    "title": "Titanium",
+    "artist": "Satan Dave",
+    "album": "Satanic Sessions",
+    "genre": "Hip Hop",
+    "duration": "3:47"
+  },
+  {
+    "id": 12,
+    "file": "/Files/How I met my ex.mp3",
+    "cover": "/Files/Survivor.jfif",
+    "title": "How I Met My Ex",
+    "artist": "Satan Dave",
+    "album": "Satanic Sessions",
+    "genre": "Hip Hop",
+    "duration": "3:47"
+  },
+  {
+    "id": 13,
+    "file": "/Files/Money Trees (feat. Jay Rock)   Kendrick Lamar.m4a",
+    "cover": "./Files/money.jfif",
+    "title": "Money Trees (feat. Jay Rock)",
+    "artist": "Kendrick Lamar",
+    "album": "good kid, m.A.A.d city",
+    "genre": "Hip Hop",
+    "duration": "5:25"
+  },
+  {
+    "id": 14,
+    "file": "/Files/Not Like Us   Kendrick Lamar.m4a",
+    "cover": "./Files/notlike.jfif",
+    "title": "Not Like Us",
+    "artist": "Kendrick Lamar",
+    "album": "good kid, m.A.A.d city",
+    "genre": "Hip Hop",
+    "duration": "3:45"
   }
 ]
