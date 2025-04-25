@@ -1,44 +1,72 @@
 [
   {
+    "id": 1,
     "file": "/Files/Survivor s Guilt   Dave.m4a",
     "cover": "/Files/Survivor.jfif",
     "title": "Survivor's Guilt",
-    "artist": "Satan Dave"
+    "artist": "Satan Dave",
+    "album": "Satanic Sessions",
+    "genre": "Hip Hop",
+    "duration": "3:47"
   },
   {
+    "id": 2,
     "file": "/Files/Laho.m4a",
     "cover": "/Files/enjoyment.jfif",
     "title": "Minister of Enjoyment",
-    "artist": "Laho"
+    "artist": "Laho",
+    "album": "Joyful Hymns",
+    "genre": "Rumba",
+    "duration": "4:02"
   },
   {
+    "id": 3,
     "file": "/Files/BURUKLYN BOYZ, MR RIGHT - PIGA LEAN (Dir By AllDayAmar ) - BURUKLYN BOYZ.mp3",
     "cover": "/Files/Boyz.jpg",
     "title": "Piga Lean",
-    "artist": "BURUKLYN BOYZ"
+    "artist": "BURUKLYN BOYZ",
+    "album": "Street Anthems",
+    "genre": "Kenyan Hip Hop",
+    "duration": "3:21"
   },
   {
+    "id": 4,
     "file": "/Files/Lucky-Dube-One-Love.mp3",
     "cover": "/Files/lucky.jpg",
-    "title": "One‑Love",
-    "artist": "Lucky Dube"
+    "title": "One-Love",
+    "artist": "Lucky Dube",
+    "album": "National Splendour",
+    "genre": "Reggae",
+    "duration": "4:05"
   },
   {
+    "id": 5,
     "file": "/Files/King Kaka Ft Scar Mkadinali & Sewersydaa - Soko.mp3",
     "cover": "/Files/soko.jfif",
     "title": "Soko",
-    "artist": "Wakadinali"
+    "artist": "Wakadinali",
+    "album": "Marketplace Vibes",
+    "genre": "Kenyan Hip Hop",
+    "duration": "3:12"
   },
   {
+    "id": 6,
     "file": "/Files/Marioo-Nairobi-Feat-Bien.mp3",
     "cover": "/Files/mario.jfif",
     "title": "Nairobi (feat. Bien)",
-    "artist": "Marioo"
+    "artist": "Marioo",
+    "album": "City Lights",
+    "genre": "Bongo Flava",
+    "duration": "3:36"
   },
   {
+    "id": 7,
     "file": "/Files/WAKADINALI-Mariwanna.mp3",
     "cover": "/Files/wakad.jfif",
     "title": "Mariwanna",
-    "artist": "Wakadinali"
+    "artist": "Wakadinali",
+    "album": "Urban Tales",
+    "genre": "Kenyan Hip Hop",
+    "duration": "3:50"
   }
 ]
