@@ -68,3 +68,46 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Music Streaming CLI Application
+
+A command-line interface (CLI) application for managing a personal music streaming service. This application allows users to browse music, create playlists, and manage their music library with your custom music collection.
+
+## Features
+
+- 👤 User authentication (register, login)
+- 🎵 Browse music (songs, artists, albums, genres)
+- 🔍 Search functionality (simple and advanced)
+- 📝 Create and manage playlists
+- ➕ Add and remove songs from playlists
+- ⚙️ Admin functionality to manage the music database
+- 🎨 Beautiful CLI interface with emojis
+
+## Your Music Collection
+
+The application comes pre-loaded with your music collection including:
+
+**Artists:**
+- Satan Dave (5 songs)
+- Kendrick Lamar (3 songs)
+- Wakadinali (2 songs)
+- Laho, BURUKLYN BOYZ, Lucky Dube, Marioo (1 song each)
+
+**Genres:**
+- Hip Hop (8 songs)
+- Kenyan Hip Hop (3 songs)
+- Rumba, Reggae, Bongo Flava (1 song each)
+
+## Installation & Setup
+
+1. **Clone or download the project files**
+
+2. **Install dependencies:**
+```bash
+pip install sqlalchemy alembic
+```
+```bash
+python lib/debug.py
+python setup.py
+python run.py
+```

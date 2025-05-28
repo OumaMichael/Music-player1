@@ -21,7 +21,7 @@ def hash_password(password):
 
 def setup_database():
     """Set up the database from scratch"""
-    print("🎵 Setting up Music Streaming CLI Database...\n")
+    print(" Setting up Music Streaming CLI Database...\n")
     
     # Ensure the database directory exists
     os.makedirs(DB_DIR, exist_ok=True)
@@ -32,7 +32,7 @@ def setup_database():
             os.remove(DB_PATH)
             print("Removed existing database.")
         except PermissionError:
-            print("❌ Could not remove existing database (file in use).")
+            print(" Could not remove existing database (file in use).")
             print("Please close any applications using the database and try again.")
             return False
     
@@ -236,7 +236,7 @@ if __name__ == "__main__":
         if setup_database():
             # Start the CLI application
             print("\n============================================================")
-            print("                  🎵 MUSIC STREAMING CLI 🎵")
+            print("                   MUSIC STREAMING CLI ")
             print("           Your Personal Music Collection Manager")
             print("============================================================")
             
@@ -244,9 +244,9 @@ if __name__ == "__main__":
             from lib.cli import main
             main()
         else:
-            print("\n❌ Database setup failed. Please check the error messages above.")
+            print("\n Database setup failed. Please check the error messages above.")
     except Exception as e:
-        print(f"\n❌ Error during setup: {str(e)}")
+        print(f"\n Error during setup: {str(e)}")
         print("\nTrying to clean up and retry...")
         try:
             # Wait a moment in case of file locks
@@ -255,5 +255,5 @@ if __name__ == "__main__":
                 os.remove(DB_PATH)
             setup_database()
         except Exception as cleanup_error:
-            print(f"❌ Setup failed even on retry: {str(cleanup_error)}")
+            print(f" Setup failed even on retry: {str(cleanup_error)}")
             print("Please check your database configuration and try again.")
