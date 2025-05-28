@@ -68,20 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
+# Back-end
 # Music Streaming CLI Application
 
 A command-line interface (CLI) application for managing a personal music streaming service. This application allows users to browse music, create playlists, and manage their music library with your custom music collection.
 
 ## Features
 
-- 👤 User authentication (register, login)
-- 🎵 Browse music (songs, artists, albums, genres)
-- 🔍 Search functionality (simple and advanced)
-- 📝 Create and manage playlists
-- ➕ Add and remove songs from playlists
-- ⚙️ Admin functionality to manage the music database
-- 🎨 Beautiful CLI interface with emojis
+-  User authentication (register, login)
+-  Browse music (songs, artists, albums, genres)
+-  Search functionality (simple and advanced)
+-  Create and manage playlists
+- + Add and remove songs from playlists
+-  Admin functionality to manage the music database
+-  Beautiful CLI interface with emojis
 
 ## Your Music Collection
 
