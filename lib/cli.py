@@ -18,7 +18,7 @@ class MusicStreamingCLI:
     def print_header(self):
         """Print the application header"""
         print("=" * 60)
-        print("                  🎵 MUSIC STREAMING CLI 🎵")
+        print("                   MUSIC STREAMING CLI ")
         print("           Your Personal Music Collection Manager")
         print("=" * 60)
         print()
@@ -31,11 +31,11 @@ class MusicStreamingCLI:
 
     def get_input(self, prompt):
         """Get user input with a prompt"""
-        return input(f"🎵 {prompt}: ").strip()
+        return input(f" {prompt}: ").strip()
 
     def pause(self):
         """Pause and wait for user input"""
-        input("\n⏸️  Press Enter to continue...")
+        input("\n  Press Enter to continue...")
 
     def show_main_menu(self):
         """Show the main menu"""
@@ -44,22 +44,22 @@ class MusicStreamingCLI:
         
         if self.current_user:
             options = {
-                "1": "🎵 Browse Music",
-                "2": "🔍 Search Songs",
-                "3": "👥 Browse Artists",
-                "4": "🎭 Browse Genres",
-                "5": "📋 My Playlists",
-                "6": "➕ Create Playlist",
-                "7": "👤 Profile",
-                "8": "🚪 Logout",
-                "0": "🚪 Exit"
+                "1": " Browse Music",
+                "2": " Search Songs",
+                "3": " Browse Artists",
+                "4": " Browse Genres",
+                "5": " My Playlists",
+                "6": "+ Create Playlist",
+                "7": " Profile",
+                "8": " Logout",
+                "0": " Exit"
             }
         else:
             options = {
-                "1": "👤 Register",
-                "2": "🔐 Login",
-                "3": "🎵 Browse Music (Guest Mode)",
-                "0": "🚪 Exit"
+                "1": " Register",
+                "2": " Login",
+                "3": " Browse Music (Guest Mode)",
+                "0": " Exit"
             }
         
         self.print_menu("MAIN MENU", options)
@@ -86,7 +86,7 @@ class MusicStreamingCLI:
             else:
                 print("Registration successful, but auto-login failed. Please login manually.")
         else:
-            print(f"❌ Registration failed: {result}")
+            print(f" Registration failed: {result}")
         
         self.pause()
 
@@ -102,9 +102,9 @@ class MusicStreamingCLI:
         
         if success:
             self.current_user = result
-            print(f"✅ Welcome back, {result['username']}!")
+            print(f" Welcome back, {result['username']}!")
         else:
-            print(f"❌ Login failed: {result}")
+            print(f" Login failed: {result}")
         
         self.pause()
 
@@ -113,28 +113,28 @@ class MusicStreamingCLI:
         if self.current_user:
             username = self.current_user['username']
             self.current_user = None
-            print(f"👋 Goodbye, {username}!")
+            print(f" Goodbye, {username}!")
         self.pause()
 
     def show_profile(self):
         """Show user profile"""
         if not self.current_user:
-            print("❌ Please login first")
+            print(" Please login first")
             self.pause()
             return
         
         self.clear_screen()
         print("=== USER PROFILE ===")
-        print(f"👤 Username: {self.current_user['username']}")
-        print(f"📧 Email: {self.current_user['email']}")
-        print(f"🔑 Admin: {'Yes' if self.current_user['is_admin'] else 'No'}")
-        print(f"🆔 User ID: {self.current_user['id']}")
+        print(f" Username: {self.current_user['username']}")
+        print(f" Email: {self.current_user['email']}")
+        print(f" Admin: {'Yes' if self.current_user['is_admin'] else 'No'}")
+        print(f" User ID: {self.current_user['id']}")
         self.pause()
 
     def browse_music(self):
         """Browse all music"""
         self.clear_screen()
-        print("=== 🎵 MUSIC LIBRARY ===")
+        print("===  MUSIC LIBRARY ===")
         
         songs = get_all_songs()
         
@@ -147,11 +147,11 @@ class MusicStreamingCLI:
         
         for i, song in enumerate(songs, 1):
             duration_str = f"{song['duration']}s" if song['duration'] else "Unknown"
-            print(f"{i:2d}. 🎵 {song['title']}")
-            print(f"    👤 Artist: {song['artist']}")
-            print(f"    💿 Album: {song['album']}")
-            print(f"    🎭 Genre: {song['genre']}")
-            print(f"    ⏱️  Duration: {duration_str}")
+            print(f"{i:2d}.  {song['title']}")
+            print(f"     Artist: {song['artist']}")
+            print(f"     Album: {song['album']}")
+            print(f"     Genre: {song['genre']}")
+            print(f"      Duration: {duration_str}")
             print()
         
         if self.current_user:
@@ -166,17 +166,17 @@ class MusicStreamingCLI:
     def search_music(self):
         """Search for music"""
         if not self.current_user:
-            print("❌ Please login to search music")
+            print(" Please login to search music")
             self.pause()
             return
         
         self.clear_screen()
-        print("=== 🔍 SEARCH MUSIC ===")
+        print("===  SEARCH MUSIC ===")
         
         query = self.get_input("Enter search term (song, artist, or album)")
         
         if not query:
-            print("❌ Please enter a search term")
+            print(" Please enter a search term")
             self.pause()
             return
         
@@ -191,11 +191,11 @@ class MusicStreamingCLI:
         
         for i, song in enumerate(songs, 1):
             duration_str = f"{song['duration']}s" if song['duration'] else "Unknown"
-            print(f"{i:2d}. 🎵 {song['title']}")
-            print(f"    👤 Artist: {song['artist']}")
-            print(f"    💿 Album: {song['album']}")
-            print(f"    🎭 Genre: {song['genre']}")
-            print(f"    ⏱️  Duration: {duration_str}")
+            print(f"{i:2d}.  {song['title']}")
+            print(f"     Artist: {song['artist']}")
+            print(f"     Album: {song['album']}")
+            print(f"     Genre: {song['genre']}")
+            print(f"      Duration: {duration_str}")
             print()
         
         choice = self.get_input("Enter song number to add to playlist (or press Enter to continue)")
@@ -209,7 +209,7 @@ class MusicStreamingCLI:
     def browse_artists(self):
         """Browse all artists"""
         self.clear_screen()
-        print("=== 👥 ARTISTS ===")
+        print("===  ARTISTS ===")
         
         artists = get_all_artists()
         
@@ -221,9 +221,9 @@ class MusicStreamingCLI:
         print(f"Found {len(artists)} artists:\n")
         
         for i, artist in enumerate(artists, 1):
-            print(f"{i:2d}. 👤 {artist['name']}")
+            print(f"{i:2d}.  {artist['name']}")
             if artist['bio']:
-                print(f"    📝 {artist['bio']}")
+                print(f"     {artist['bio']}")
             print()
         
         choice = self.get_input("Enter artist number to view songs (or press Enter to continue)")
@@ -237,7 +237,7 @@ class MusicStreamingCLI:
     def show_artist_songs(self, artist_id, artist_name):
         """Show songs by a specific artist"""
         self.clear_screen()
-        print(f"=== 🎵 SONGS BY {artist_name.upper()} ===")
+        print(f"===  SONGS BY {artist_name.upper()} ===")
         
         songs = get_artist_songs(artist_id)
         
@@ -249,16 +249,16 @@ class MusicStreamingCLI:
         
         for i, song in enumerate(songs, 1):
             duration_str = f"{song['duration']}s" if song['duration'] else "Unknown"
-            print(f"{i:2d}. 🎵 {song['title']}")
-            print(f"    💿 Album: {song['album']}")
-            print(f"    🎭 Genre: {song['genre']}")
-            print(f"    ⏱️  Duration: {duration_str}")
+            print(f"{i:2d}.  {song['title']}")
+            print(f"     Album: {song['album']}")
+            print(f"     Genre: {song['genre']}")
+            print(f"      Duration: {duration_str}")
             print()
 
     def browse_genres(self):
         """Browse all genres"""
         self.clear_screen()
-        print("=== 🎭 GENRES ===")
+        print("===  GENRES ===")
         
         genres = get_all_genres()
         
@@ -270,7 +270,7 @@ class MusicStreamingCLI:
         print(f"Found {len(genres)} genres:\n")
         
         for i, genre in enumerate(genres, 1):
-            print(f"{i:2d}. 🎭 {genre['name']}")
+            print(f"{i:2d}.  {genre['name']}")
         
         choice = self.get_input("Enter genre number to view songs (or press Enter to continue)")
         if choice.isdigit():
@@ -283,7 +283,7 @@ class MusicStreamingCLI:
     def show_genre_songs(self, genre_id, genre_name):
         """Show songs in a specific genre"""
         self.clear_screen()
-        print(f"=== 🎵 {genre_name.upper()} SONGS ===")
+        print(f"===  {genre_name.upper()} SONGS ===")
         
         songs = get_songs_by_genre(genre_id)
         
@@ -296,10 +296,10 @@ class MusicStreamingCLI:
         
         for i, song in enumerate(songs, 1):
             duration_str = f"{song['duration']}s" if song['duration'] else "Unknown"
-            print(f"{i:2d}. 🎵 {song['title']}")
-            print(f"    👤 Artist: {song['artist']}")
-            print(f"    💿 Album: {song['album']}")
-            print(f"    ⏱️  Duration: {duration_str}")
+            print(f"{i:2d}.  {song['title']}")
+            print(f"     Artist: {song['artist']}")
+            print(f"     Album: {song['album']}")
+            print(f"      Duration: {duration_str}")
             print()
         
         self.pause()
@@ -307,12 +307,12 @@ class MusicStreamingCLI:
     def show_playlists(self):
         """Show user playlists"""
         if not self.current_user:
-            print("❌ Please login to view playlists")
+            print(" Please login to view playlists")
             self.pause()
             return
         
         self.clear_screen()
-        print("=== 📋 MY PLAYLISTS ===")
+        print("===  MY PLAYLISTS ===")
         
         playlists = get_user_playlists(self.current_user['id'])
         
@@ -325,10 +325,10 @@ class MusicStreamingCLI:
         print(f"You have {len(playlists)} playlists:\n")
         
         for i, playlist in enumerate(playlists, 1):
-            print(f"{i:2d}. 📋 {playlist['name']}")
+            print(f"{i:2d}.  {playlist['name']}")
             if playlist['description']:
-                print(f"    📝 {playlist['description']}")
-            print(f"    📅 Created: {playlist['created_at']}")
+                print(f"     {playlist['description']}")
+            print(f"     Created: {playlist['created_at']}")
             print()
         
         choice = self.get_input("Enter playlist number to view songs (or press Enter to continue)")
@@ -342,7 +342,7 @@ class MusicStreamingCLI:
     def show_playlist_songs(self, playlist_id, playlist_name):
         """Show songs in a playlist"""
         self.clear_screen()
-        print(f"=== 📋 {playlist_name.upper()} ===")
+        print(f"===  {playlist_name.upper()} ===")
         
         songs = get_playlist_songs(playlist_id)
         
@@ -354,26 +354,26 @@ class MusicStreamingCLI:
         
         for song in songs:
             duration_str = f"{song['duration']}s" if song['duration'] else "Unknown"
-            print(f"{song['position']:2d}. 🎵 {song['title']}")
-            print(f"    👤 Artist: {song['artist']}")
-            print(f"    💿 Album: {song['album']}")
-            print(f"    🎭 Genre: {song['genre']}")
-            print(f"    ⏱️  Duration: {duration_str}")
+            print(f"{song['position']:2d}.  {song['title']}")
+            print(f"     Artist: {song['artist']}")
+            print(f"     Album: {song['album']}")
+            print(f"     Genre: {song['genre']}")
+            print(f"      Duration: {duration_str}")
             print()
 
     def create_new_playlist(self):
         """Create a new playlist"""
         if not self.current_user:
-            print("❌ Please login to create playlists")
+            print(" Please login to create playlists")
             self.pause()
             return
         
         self.clear_screen()
-        print("=== ➕ CREATE PLAYLIST ===")
+        print("=== + CREATE PLAYLIST ===")
         
         name = self.get_input("Enter playlist name")
         if not name:
-            print("❌ Playlist name cannot be empty")
+            print(" Playlist name cannot be empty")
             self.pause()
             return
         
@@ -382,9 +382,9 @@ class MusicStreamingCLI:
         success, result = create_playlist(self.current_user['id'], name, description)
         
         if success:
-            print(f"✅ Playlist '{name}' created successfully!")
+            print(f" Playlist '{name}' created successfully!")
         else:
-            print(f"❌ Failed to create playlist: {result}")
+            print(f" Failed to create playlist: {result}")
         
         self.pause()
 
@@ -393,7 +393,7 @@ class MusicStreamingCLI:
         playlists = get_user_playlists(self.current_user['id'])
         
         if not playlists:
-            print("\n❌ You don't have any playlists yet.")
+            print("\n You don't have any playlists yet.")
             create = self.get_input("Would you like to create a playlist first? (y/n)")
             if create.lower() == 'y':
                 self.create_new_playlist()
@@ -412,9 +412,9 @@ class MusicStreamingCLI:
                 playlist_id = playlists[playlist_index]['id']
                 success, message = add_song_to_playlist(playlist_id, song_id)
                 if success:
-                    print(f"✅ {message}")
+                    print(f" {message}")
                 else:
-                    print(f"❌ {message}")
+                    print(f" {message}")
 
     def run(self):
         """Main application loop"""
@@ -424,7 +424,7 @@ class MusicStreamingCLI:
                 
                 if choice == "0":
                     self.running = False
-                    print("👋 Thank you for using Music Streaming CLI!")
+                    print(" Thank you for using Music Streaming CLI!")
                     break
                 
                 if not self.current_user:
@@ -436,7 +436,7 @@ class MusicStreamingCLI:
                     elif choice == "3":
                         self.browse_music()
                     else:
-                        print("❌ Invalid option")
+                        print(" Invalid option")
                         self.pause()
                 else:
                     # Logged in menu
@@ -457,14 +457,14 @@ class MusicStreamingCLI:
                     elif choice == "8":
                         self.logout()
                     else:
-                        print("❌ Invalid option")
+                        print(" Invalid option")
                         self.pause()
                         
             except KeyboardInterrupt:
-                print("\n\n👋 Goodbye!")
+                print("\n\n Goodbye!")
                 break
             except Exception as e:
-                print(f"\n❌ An error occurred: {str(e)}")
+                print(f"\n An error occurred: {str(e)}")
                 self.pause()
 
 def main():

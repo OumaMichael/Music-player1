@@ -46,10 +46,10 @@ def find_database():
     for path in possible_paths:
         print(f"  Checking: {path}")
         if os.path.exists(path):
-            print(f"  ✅ Found database at: {path}")
+            print(f"   Found database at: {path}")
             return path
         else:
-            print(f"  ❌ Not found")
+            print(f"   Not found")
     
     return None
 
@@ -96,11 +96,11 @@ def check_paths_and_find_database():
         for item in os.listdir(project_root):
             item_path = os.path.join(project_root, item)
             if os.path.isdir(item_path):
-                print(f"  📁 {item}/")
+                print(f"   {item}/")
             else:
-                print(f"  📄 {item}")
+                print(f"   {item}")
     except Exception as e:
-        print(f"  ❌ Cannot list directory: {e}")
+        print(f"   Cannot list directory: {e}")
     
     # Show lib directory contents
     print(f"\nContents of lib directory ({lib_dir}):")
@@ -108,20 +108,20 @@ def check_paths_and_find_database():
         for item in os.listdir(lib_dir):
             item_path = os.path.join(lib_dir, item)
             if os.path.isdir(item_path):
-                print(f"  📁 {item}/")
+                print(f"   {item}/")
                 # If it's db directory, show its contents
                 if item == 'db':
                     db_path = os.path.join(lib_dir, 'db')
                     print(f"    Contents of db/:")
                     try:
                         for db_item in os.listdir(db_path):
-                            print(f"      📄 {db_item}")
+                            print(f"       {db_item}")
                     except Exception as e:
-                        print(f"      ❌ Cannot list db directory: {e}")
+                        print(f"       Cannot list db directory: {e}")
             else:
-                print(f"  📄 {item}")
+                print(f"   {item}")
     except Exception as e:
-        print(f"  ❌ Cannot list lib directory: {e}")
+        print(f"   Cannot list lib directory: {e}")
     
     # Search for database files
     print("\nSearching for database files...")
@@ -152,7 +152,7 @@ def check_paths_and_find_database():
     if db_files:
         print("Found database files:")
         for db_file in db_files:
-            print(f"  ✅ {db_file}")
+            print(f"   {db_file}")
             # Check if it's our music streaming database
             try:
                 conn = sqlite3.connect(db_file)
@@ -167,7 +167,7 @@ def check_paths_and_find_database():
             except Exception:
                 pass
     else:
-        print("❌ No database files found")
+        print(" No database files found")
     
     print(f"\nUsing database path: {DB_PATH}")
     print(f"Database exists: {os.path.exists(DB_PATH) if DB_PATH else False}")
@@ -179,7 +179,7 @@ def check_database_exists():
     print_header("DATABASE FILE CHECK")
     
     if not DB_PATH:
-        print("❌ Database path not determined")
+        print(" Database path not determined")
         return False
     
     print(f"Database directory: {DB_DIR}")
@@ -199,7 +199,7 @@ def check_database_exists():
         mod_datetime = datetime.fromtimestamp(mod_time)
         print(f"Last modified: {mod_datetime}")
     else:
-        print("❌ Database file does not exist!")
+        print(" Database file does not exist!")
         print("Please run 'python setup.py' first to create the database.")
         return False
     
@@ -210,7 +210,7 @@ def check_database_connection():
     print_header("DATABASE CONNECTION TEST")
     
     if not os.path.exists(DB_PATH):
-        print(f"❌ Database file not found: {DB_PATH}")
+        print(f" Database file not found: {DB_PATH}")
         print("Please run 'python setup.py' first to create the database.")
         return False
     
@@ -221,18 +221,18 @@ def check_database_connection():
         # Test basic query
         cursor.execute("SELECT sqlite_version()")
         version = cursor.fetchone()[0]
-        print(f"✅ SQLite version: {version}")
+        print(f" SQLite version: {version}")
         
         # Check if we can create a temporary table
         cursor.execute("CREATE TEMPORARY TABLE test_table (id INTEGER)")
         cursor.execute("DROP TABLE test_table")
-        print("✅ Database is writable")
+        print(" Database is writable")
         
         conn.close()
         return True
         
     except Exception as e:
-        print(f"❌ Database connection failed: {str(e)}")
+        print(f" Database connection failed: {str(e)}")
         return False
 
 def check_table_structure():
@@ -240,7 +240,7 @@ def check_table_structure():
     print_header("DATABASE SCHEMA CHECK")
     
     if not os.path.exists(DB_PATH):
-        print(f"❌ Database file not found: {DB_PATH}")
+        print(f" Database file not found: {DB_PATH}")
         print("Please run 'python setup.py' first to create the database.")
         return False
     
@@ -265,7 +265,7 @@ def check_table_structure():
             # Check if table exists
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table_name,))
             if not cursor.fetchone():
-                print(f"❌ Table '{table_name}' does not exist!")
+                print(f" Table '{table_name}' does not exist!")
                 continue
             
             # Get table info
@@ -289,7 +289,7 @@ def check_table_structure():
         return True
         
     except Exception as e:
-        print(f"❌ Schema check failed: {str(e)}")
+        print(f" Schema check failed: {str(e)}")
         return False
 
 def check_data_integrity():
@@ -297,7 +297,7 @@ def check_data_integrity():
     print_header("DATA INTEGRITY CHECK")
     
     if not os.path.exists(DB_PATH):
-        print(f"❌ Database file not found: {DB_PATH}")
+        print(f" Database file not found: {DB_PATH}")
         print("Please run 'python setup.py' first to create the database.")
         return False
     
@@ -381,7 +381,7 @@ def check_data_integrity():
         return True
         
     except Exception as e:
-        print(f"❌ Data integrity check failed: {str(e)}")
+        print(f" Data integrity check failed: {str(e)}")
         return False
 
 def test_authentication():
@@ -389,7 +389,7 @@ def test_authentication():
     print_header("AUTHENTICATION TEST")
     
     if not os.path.exists(DB_PATH):
-        print(f"❌ Database file not found: {DB_PATH}")
+        print(f" Database file not found: {DB_PATH}")
         print("Please run 'python setup.py' first to create the database.")
         return False
     
@@ -421,22 +421,22 @@ def test_authentication():
             user = cursor.fetchone()
             if user:
                 user_id, db_username, email, is_admin, db_password_hash = user
-                print(f"✅ User found: ID={user_id}, Email={email}, Admin={is_admin}")
+                print(f" User found: ID={user_id}, Email={email}, Admin={is_admin}")
                 
                 if db_password_hash == hashed_password:
-                    print("✅ Password matches")
+                    print(" Password matches")
                 else:
-                    print("❌ Password does not match")
+                    print(" Password does not match")
                     print(f"Expected: {hashed_password}")
                     print(f"Got:      {db_password_hash}")
             else:
-                print(f"❌ User '{username}' not found")
+                print(f" User '{username}' not found")
         
         conn.close()
         return True
         
     except Exception as e:
-        print(f"❌ Authentication test failed: {str(e)}")
+        print(f" Authentication test failed: {str(e)}")
         return False
 
 def test_sqlalchemy_import():
@@ -451,60 +451,60 @@ def test_sqlalchemy_import():
         # Try different import strategies
         try:
             from lib.models.base import Base
-            print("✅ Base imported successfully (lib.models.base)")
+            print(" Base imported successfully (lib.models.base)")
         except ImportError:
             try:
                 from models.base import Base
-                print("✅ Base imported successfully (models.base)")
+                print(" Base imported successfully (models.base)")
             except ImportError:
                 # Try adding lib to path if not already there
                 if lib_dir not in sys.path:
                     sys.path.insert(0, lib_dir)
                 from models.base import Base
-                print("✅ Base imported successfully (models.base with lib path)")
+                print(" Base imported successfully (models.base with lib path)")
         
         try:
             from lib.models.models import User, Artist, Album, Genre, Song, Playlist, PlaylistSong
-            print("✅ Models imported successfully (lib.models.models)")
+            print(" Models imported successfully (lib.models.models)")
         except ImportError:
             try:
                 from models.models import User, Artist, Album, Genre, Song, Playlist, PlaylistSong
-                print("✅ Models imported successfully (models.models)")
+                print(" Models imported successfully (models.models)")
             except ImportError:
                 if lib_dir not in sys.path:
                     sys.path.insert(0, lib_dir)
                 from models.models import User, Artist, Album, Genre, Song, Playlist, PlaylistSong
-                print("✅ Models imported successfully (models.models with lib path)")
+                print(" Models imported successfully (models.models with lib path)")
         
         try:
             from lib.helpers import get_db_session, register_user, login_user
-            print("✅ Helper functions imported successfully (lib.helpers)")
+            print(" Helper functions imported successfully (lib.helpers)")
         except ImportError:
             try:
                 from helpers import get_db_session, register_user, login_user
-                print("✅ Helper functions imported successfully (helpers)")
+                print(" Helper functions imported successfully (helpers)")
             except ImportError:
                 if lib_dir not in sys.path:
                     sys.path.insert(0, lib_dir)
                 from helpers import get_db_session, register_user, login_user
-                print("✅ Helper functions imported successfully (helpers with lib path)")
+                print(" Helper functions imported successfully (helpers with lib path)")
         
         # Test database session creation
         print("\nTesting database session...")
         session = get_db_session()
-        print("✅ Database session created")
+        print(" Database session created")
         
         # Test a simple query
         users = session.query(User).all()
-        print(f"✅ Found {len(users)} users via SQLAlchemy")
+        print(f" Found {len(users)} users via SQLAlchemy")
         
         session.close()
-        print("✅ Session closed successfully")
+        print(" Session closed successfully")
         
         return True
         
     except Exception as e:
-        print(f"❌ SQLAlchemy test failed: {str(e)}")
+        print(f" SQLAlchemy test failed: {str(e)}")
         import traceback
         traceback.print_exc()
         return False
@@ -520,14 +520,14 @@ def test_helper_functions():
                 register_user, login_user, get_all_songs, get_all_artists,
                 search_songs, get_user_playlists, create_playlist
             )
-            print("✅ Imported from lib.helpers")
+            print(" Imported from lib.helpers")
         except ImportError:
             try:
                 from helpers import (
                     register_user, login_user, get_all_songs, get_all_artists,
                     search_songs, get_user_playlists, create_playlist
                 )
-                print("✅ Imported from helpers")
+                print(" Imported from helpers")
             except ImportError:
                 if lib_dir not in sys.path:
                     sys.path.insert(0, lib_dir)
@@ -535,21 +535,21 @@ def test_helper_functions():
                     register_user, login_user, get_all_songs, get_all_artists,
                     search_songs, get_user_playlists, create_playlist
                 )
-                print("✅ Imported from helpers with lib path")
+                print(" Imported from helpers with lib path")
         
         # Test login
         print_section("Testing login function")
         success, result = login_user("Winnie", "MARINE")
         if success:
-            print("✅ Login successful")
+            print(" Login successful")
             print(f"User data: {result}")
         else:
-            print(f"❌ Login failed: {result}")
+            print(f" Login failed: {result}")
         
         # Test get all songs
         print_section("Testing get_all_songs")
         songs = get_all_songs()
-        print(f"✅ Found {len(songs)} songs")
+        print(f" Found {len(songs)} songs")
         if songs:
             print("Sample song:")
             print(f"  {songs[0]}")
@@ -557,7 +557,7 @@ def test_helper_functions():
         # Test get all artists
         print_section("Testing get_all_artists")
         artists = get_all_artists()
-        print(f"✅ Found {len(artists)} artists")
+        print(f" Found {len(artists)} artists")
         if artists:
             print("Sample artist:")
             print(f"  {artists[0]}")
@@ -565,12 +565,12 @@ def test_helper_functions():
         # Test search
         print_section("Testing search_songs")
         search_results = search_songs("Satan")
-        print(f"✅ Search for 'Satan' returned {len(search_results)} results")
+        print(f" Search for 'Satan' returned {len(search_results)} results")
         
         return True
         
     except Exception as e:
-        print(f"❌ Helper functions test failed: {str(e)}")
+        print(f" Helper functions test failed: {str(e)}")
         import traceback
         traceback.print_exc()
         return False
@@ -580,7 +580,7 @@ def show_detailed_song_info():
     print_header("DETAILED SONG INFORMATION")
     
     if not os.path.exists(DB_PATH):
-        print(f"❌ Database file not found: {DB_PATH}")
+        print(f" Database file not found: {DB_PATH}")
         print("Please run 'python setup.py' first to create the database.")
         return False
     
@@ -623,7 +623,7 @@ def show_detailed_song_info():
         return True
         
     except Exception as e:
-        print(f"❌ Detailed song info failed: {str(e)}")
+        print(f" Detailed song info failed: {str(e)}")
         return False
 
 def execute_custom_query():
@@ -631,7 +631,7 @@ def execute_custom_query():
     print_header("CUSTOM SQL QUERY")
     
     if not os.path.exists(DB_PATH):
-        print(f"❌ Database file not found: {DB_PATH}")
+        print(f" Database file not found: {DB_PATH}")
         print("Please run 'python setup.py' first to create the database.")
         return
     
@@ -654,12 +654,12 @@ def execute_custom_query():
                 print(row)
         else:
             conn.commit()
-            print("✅ Query executed successfully")
+            print(" Query executed successfully")
         
         conn.close()
         
     except Exception as e:
-        print(f"❌ Query failed: {str(e)}")
+        print(f" Query failed: {str(e)}")
 
 def run_all_tests():
     """Run all debug tests"""
@@ -684,7 +684,7 @@ def run_all_tests():
         try:
             results[test_name] = test_func()
         except Exception as e:
-            print(f"\n❌ {test_name} crashed: {str(e)}")
+            print(f"\n {test_name} crashed: {str(e)}")
             results[test_name] = False
     
     # Summary
@@ -694,7 +694,7 @@ def run_all_tests():
     total = len(tests)
     
     for test_name, result in results.items():
-        status = "✅ PASS" if result else "❌ FAIL"
+        status = " PASS" if result else " FAIL"
         print(f"{test_name}: {status}")
         if result:
             passed += 1
@@ -702,9 +702,9 @@ def run_all_tests():
     print(f"\nOverall: {passed}/{total} tests passed")
     
     if passed == total:
-        print("🎉 All tests passed! Your database is working correctly.")
+        print(" All tests passed! Your database is working correctly.")
     else:
-        print("⚠️  Some tests failed. Check the details above.")
+        print("  Some tests failed. Check the details above.")
 
 def interactive_debug():
     """Interactive debug menu"""
@@ -723,7 +723,7 @@ def interactive_debug():
         choice = input("\n🔧 Select option: ").strip()
         
         if choice == "0":
-            print("👋 Goodbye!")
+            print(" Goodbye!")
             break
         elif choice == "1":
             run_all_tests()
@@ -742,7 +742,7 @@ def interactive_debug():
         elif choice == "8":
             check_paths_and_find_database()
         else:
-            print("❌ Invalid option")
+            print(" Invalid option")
         
         input("\nPress Enter to continue...")
 
