@@ -1,0 +1,47 @@
+Table users {
+  id integer [primary key, increment]
+  username varchar(50) [unique, not null]
+  email varchar(100) [unique, not null]
+  password_hash varchar(255) [not null]
+}
+
+Table artists {
+  id integer [primary key, increment]
+  name varchar(100) [not null]
+}
+
+Table albums {
+  id integer [primary key, increment]
+  title varchar(100) [not null]
+  artist_id integer [ref: > artists.id]
+  cover_image varchar(255)
+}
+
+Table genres {
+  id integer [primary key, increment]
+  name varchar(50) [unique, not null]
+}
+
+Table songs {
+  id integer [primary key, increment]
+  title varchar(100) [not null]
+  artist_id integer [ref: > artists.id]
+  album_id integer [ref: > albums.id]
+  genre_id integer [ref: > genres.id]
+  file_path varchar(500) [not null]
+  cover_image varchar(255)
+  duration varchar(10) [note: 'Format: MM:SS']
+}
+
+Table playlists {
+  id integer [primary key, increment]
+  user_id integer [ref: > users.id]
+  name varchar(100) [not null]
+}
+
+Table playlist_songs {
+  id integer [primary key, increment]
+  playlist_id integer [ref: > playlists.id]
+  song_id integer [ref: > songs.id]
+  position integer [not null]
+}
